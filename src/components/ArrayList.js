@@ -79,9 +79,15 @@ const ArrayList = () => {
           </button>
         </div>
         <div className="card-container">
-          {filterListData.map((res) => (
-            <ProductCard key={list.id} resData={res} />
-          ))}
+          {filterListData
+            .filter((res) => {
+              return searchText.toLowerCase().includes(searchText) === ""
+                ? res
+                : res.title.toLowerCase().includes(searchText);
+            })
+            .map((res) => (
+              <ProductCard key={list.id} resData={res} />
+            ))}
         </div>
       </div>
     </div>
