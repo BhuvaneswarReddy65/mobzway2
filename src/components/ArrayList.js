@@ -83,7 +83,7 @@ const ArrayList = () => {
             .filter((res) => {
               return searchText.toLowerCase().includes(searchText) === ""
                 ? res
-                : res.title.toLowerCase().includes(searchText);
+                : res.title.toLowerCase().includes(searchText.toLowerCase());
             })
             .map((res) => (
               <ProductCard key={list.id} resData={res} />
